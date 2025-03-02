@@ -1,11 +1,11 @@
 # FTP configuration and Hardening
 
 ## Objective
-Configure FTP to use SSL through vsftpd (very secure FTP daemon). For this project I am utiziling my home lab Proxmox Server, running Ubuntu server ISO. 
+Configure FTP to use SSL through vsftpd (very secure FTP daemon). For this project I am utiziling my home lab Proxmox Server, running Ubuntu server ISO.
 
 ## Skills learned
 - FTP & FTPS
-- SSL
+- SSH
 - openSSL
 - BASH
 - vsftpd
