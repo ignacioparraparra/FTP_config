@@ -1,24 +1,27 @@
 # FTP configuration and Hardening
 
-# Objective
+## Objective
 Configure FTP to use SSL through vsftpd (very secure FTP daemon)
 
-# Skills learned
+## Skills learned
 - FTP
 - SSL
 - Cryptography & openSSL
 - BASH
 
-# Walk Through
-Install vsftpd
+## Walk Through
+### Install vsftpd
 ```
  sudo apt update && apt install -y vsftpd
 ```
-Generate Certificate for SSL
+### Generate Certificate for SSL
 ```
 sudo openssl req -x509 -nodes -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/certs/vsftpd.crt -days 365 -newkey rsa:2048
 ```
-Create Directory for user input and output
+![resizedcrpty](https://github.com/user-attachments/assets/b7ebc0b4-af0e-43d0-be94-804a3f213973)
+
+
+### Create Directory for user input and output
 ```
      sudo -i
      useradd ftpsecure
@@ -31,13 +34,13 @@ Create Directory for user input and output
              chmod a-w /home/$u/ftp
       done
 ```
-Using OsbournePro config template and creating backups
+### Using OsbournePro config template and creating backups
 ```
      sudo mv /etc/vsftpd.conf /etc/vsftpd.conf.orig && echo "[*] Created backup of original /etc/vsftpd.conf file at /etc/vsftpd.conf.orig"
      sudo wget https://raw.githubusercontent.com/OsbornePro/ConfigTemplates/main/vsftpd.conf%20for%20FTP%20over%20SSL -O /etc/vsftpd.conf
      sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak && echo "[*] Created backup of active /etc/vsftpd.conf file at /etc/vsftpd.conf.bak"
 ```
-Adjust firewall rules
+### Adjust firewall rules
 ```
    UFW
         sudo ufw allow 20:21/tcp
@@ -48,18 +51,29 @@ Adjust firewall rules
         sudo ufw allow ftp
         sudo ufw reload
 ```
-Using filezilla for connecting 
+### Using filezilla for connecting 
 ```
 sudo apt get filezilla
 ```
 ![filzillawork](https://github.com/user-attachments/assets/a698c043-b4ae-48e7-a030-d9f303141c3e)
 
-Using lftp for ftps
+### Using lftp for CLI ftps
 ```
 sudo apt get lftp
 lftp ftps://user@server:21 -e "set ssl:verify-certificate false" #this option stops flagging of self signed cert
 ```
 
-# Automation
+## Automation
+in progress...
 
-# Considerations
+## Considerations
+in progress...
+
+## References
+https://github.com/OsbornePro/ConfigTemplates/tree/main
+
+https://youtu.be/hglh6P1ieiI?si=0VOkb1g_I7z0lVKT
+
+http://vsftpd.beasts.org/vsftpd_conf.html
+
+https://ubuntu.com/server/docs/set-up-an-ftp-server
