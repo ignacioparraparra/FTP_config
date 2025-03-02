@@ -51,13 +51,13 @@ sudo openssl req -x509 -nodes -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/
         sudo ufw allow ftp
         sudo ufw reload
 ```
-### Using filezilla for connecting 
+### Using filezilla for gui 
 ```
 sudo apt get filezilla
 ```
 ![filzillawork](https://github.com/user-attachments/assets/a698c043-b4ae-48e7-a030-d9f303141c3e)
 
-### Using lftp for CLI ftps
+### Using lftp for CLI (not recommended)
 ```
 sudo apt get lftp
 lftp ftps://user@server:21 -e "set ssl:verify-certificate false" #this option stops flagging of self signed cert
