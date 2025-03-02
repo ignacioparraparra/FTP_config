@@ -6,8 +6,9 @@ Configure FTP to use SSL through vsftpd (very secure FTP daemon)
 ## Skills learned
 - FTP
 - SSL
-- Cryptography & openSSL
+- openSSL
 - BASH
+- vsftpd
 
 ## Walk Through
 ### Install vsftpd
