@@ -52,6 +52,13 @@ sudo openssl req -x509 -nodes -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/
         sudo ufw allow ftp
         sudo ufw reload
 ```
+```
+ FIREWALL-CMD
+#        sudo firewall-cmd --zone=public --add-port=21/tcp --permanent
+#        sudo firewall-cmd --zone=public --add-port=20/tcp --permanent
+#        sudo firewall-cmd --zone=public --add-port=40000-41000/tcp
+#        sudo firewall-cmd --reload
+```
 ### Using filezilla for gui 
 ```
 sudo apt get filezilla
